@@ -2,7 +2,9 @@ package com.lelloman.identicon.drawable
 
 
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.PorterDuff
 
 
 /**
@@ -35,7 +37,7 @@ class GithubIdenticonDrawable(
         val w = (canvas.width / 5f).toInt()
         val h = (canvas.height / 5f).toInt()
 
-        canvas.drawColor(-0x1)
+        canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.SRC)
 
         var i = 0
         for (x in 0..2) {
