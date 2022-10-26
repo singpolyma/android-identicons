@@ -26,6 +26,14 @@ abstract class IdenticonView @JvmOverloads constructor(
                 invalidate()
             }
         }
+    var color: Int = 0
+        set(value) {
+            field = value
+            identiconDrawable?.let { identiconDrawable ->
+                identiconDrawable.color = value
+                invalidate()
+            }
+        }
     private var identiconDrawable: IdenticonDrawable? = null
 
     init {
@@ -45,6 +53,7 @@ abstract class IdenticonView @JvmOverloads constructor(
         super.onSizeChanged(w, h, oldw, oldh)
         if (w > 0 && h > 0) {
             identiconDrawable = makeIdenticonDrawable(width, height, hash)
+            if (color != 0) identiconDrawable?.color = color
             setImageDrawable(identiconDrawable)
         }
     }

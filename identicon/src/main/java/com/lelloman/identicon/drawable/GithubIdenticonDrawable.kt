@@ -24,10 +24,8 @@ class GithubIdenticonDrawable(
 
     private val fgPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }
 
-    val color: Int get() = COLORS[Math.abs((hash shr 15) % COLORS.size)]
-
     init {
-        invalidateBitmap()
+        color = COLORS[Math.abs((hash shr 15) % COLORS.size)]
     }
 
     override fun drawBitmap(canvas: Canvas) {

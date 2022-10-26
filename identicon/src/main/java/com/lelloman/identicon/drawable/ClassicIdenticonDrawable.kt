@@ -26,15 +26,6 @@ class ClassicIdenticonDrawable(
 
     private val tileMeasure: TileMeasures
 
-    private val color: Int
-        get() {
-            val r = 100 + identiconHash!!.r * 8
-            val g = 100 + identiconHash!!.g * 8
-            val b = 100 + identiconHash!!.b * 8
-
-            return -0x1000000 + r * 0x10000 + g * 0x100 + b
-        }
-
     init {
         onSetHash(hash)
 
@@ -46,7 +37,11 @@ class ClassicIdenticonDrawable(
 
         tileMeasure = TileMeasures(width / 3, height / 3)
 
-        invalidateBitmap()
+        val r = 100 + identiconHash!!.r * 8
+        val g = 100 + identiconHash!!.g * 8
+        val b = 100 + identiconHash!!.b * 8
+
+        color = -0x1000000 + r * 0x10000 + g * 0x100 + b
     }
 
     override fun onSetHash(newHash: Int) {

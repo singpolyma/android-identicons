@@ -32,6 +32,11 @@ abstract class IdenticonDrawable(
             onSetHash(value)
             invalidateBitmap()
         }
+    var color: Int = hash
+        set(value) {
+            field = value
+            invalidateBitmap()
+        }
 
     init {
         var actualWidth = desiredWidth
